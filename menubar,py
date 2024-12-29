@@ -1,0 +1,83 @@
+from tkinter import *
+import tkinter.messagebox as tmsg
+root=Tk()
+
+def newfile():
+    #print("new file is opened")
+    a=tmsg.showinfo("New file is opened")
+    #print(a)
+
+def newfolder():
+    #print("new folder is opened")
+    a=tmsg.showinfo("New folder is opened")
+def save():
+    #print("file is saved")
+    a=tmsg.showinfo("file is saved")
+def saveas():
+    #print("file is saved")
+    a=tmsg.showinfo("file is saved")
+def undo():
+    #print("changes is undo")
+    a=tmsg.showinfo("changes is undo")
+def redo():
+    #print("changes is redo")
+    a=tmsg.showinfo("changes is redo")
+def cut():
+    #print("text is cut")
+    a=tmsg.showinfo("text is cut")
+def copy():
+    #print("text is copied")
+    a=tmsg.showinfo("text is copied")
+def paste():
+    #print("text is pasted")
+    a=tmsg.showinfo("text is pasted")
+def helpme():
+    #print("how may I help you?")
+    ans=tmsg.askretrycancel("Do you need hellp?")
+    if ans:
+        a=tmsg.showinfo("Help bar","We will contact you in few mintues")
+        
+    else:
+        a=tmsg.showinfo("Help bar","i guess it was a mistake")
+
+def feedback():
+    a=tmsg.askquestion("Was was your experience good? ")
+    print(a)#use a for futher condition
+    if a=="yes":
+        tmsg.showinfo("Thank you for joining with us")
+    else:
+        tmsg.showinfo("we are trying to figure out")
+        
+
+
+
+mainmenu=Menu(root)
+m1=Menu(mainmenu,tearoff=0)
+m1.add_command(label="new file",command=newfile)
+m1.add_command(label="new folder",command=newfolder)
+m1.add_separator()
+m1.add_command(label="save",command=save)
+m1.add_command(label="save as",command=saveas)
+mainmenu.add_cascade(label="File",menu=m1)
+
+m2=Menu(mainmenu,tearoff=0)
+m2.add_command(label="undo",command=undo)
+m2.add_command(label="redo",command=redo)
+m2.add_separator()
+m2.add_command(label="cut",command=cut)
+m2.add_command(label="copy",command=copy)
+m2.add_command(label="paste",command=paste)
+mainmenu.add_cascade(label="Edit",menu=m2)
+
+m3=Menu(mainmenu,tearoff=0)
+m3.add_command(label="help",command=helpme)
+m3.add_command(label="feed back",command=feedback)
+mainmenu.add_cascade(label="Help",menu=m3)
+
+m4=Menu(mainmenu,tearoff=0)
+m4.add_command(label="quit",command=quit)
+mainmenu.add_cascade(label="Exit",menu=m4)
+
+root.config(menu=mainmenu)
+root.mainloop()
+
